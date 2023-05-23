@@ -1,0 +1,33 @@
+IsEmpty
+Напишите функцию isEmpty, которая возвращает true, если у объекта нет свойств(у самого объекта, не у прототипов), иначе возвращает false.
+
+const obj = Object.create(null);
+isEmpty(obj); // -> true
+isEmpty({ prop: 'value' }); // -> false
+Напишите функцию isEmptyWithProtos, которая возвращает true, если у объекта и его прототипов(не включая Object.prototype) нет свойств, иначе возвращает false.
+
+const protoObj = Object.create(null);
+const obj = Object.create(protoObj);
+isEmptyWithProtos(obj); // -> true
+isEmptyWithProtos({}); // -> false
+Обрати внимание на то, что функция isEmptyWithProtos проверяет наличие свойств не только у самого объекта, но и у его прототипов. Если создать пустой объект литерально (просто через фигурные скобки как в примере {}) то у такого объекта автоматически будет прототип Object. Поэтому isEmptyWithProtos возвращает false для таких объектов.
+
+  isEmpty
+    ✓ должна возвращать true на пустой объект без прототипа (4ms)
+    ✓ должна возвращать true на пустой объект с прототипом (1ms)
+    ✓ должна возвращать false на не пустой объект (1ms)
+  isEmptyWithProtos
+    ✓ должна возвращать true на пустой объект без прототипа (1ms)
+    ✓ должна возвращать true на пустой объект с прототипом Object.prototype (5ms)
+    ✓ должна возвращать true на пустой объект с пустым прототипом
+    ✓ должна возвращать false на объект с прототипом со свойствами (1ms)
+    ✓ должна возвращать false на не пустой объект (1ms)
+    
+    
+function isEmpty(obj) {
+
+}
+
+function isEmptyWithProtos(obj) {
+
+}
